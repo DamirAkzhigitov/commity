@@ -17,7 +17,7 @@
     "zod": "3.24.2"
   },
   "devDependencies": {
-    "@clerk/types": "^4.41.2",
+    "@clerk/types": "^4.47.0",
     "@repo/typescript-config": "workspace:*",
     "@types/node": "22.10.7",
     "@types/react": "18.3.18",
