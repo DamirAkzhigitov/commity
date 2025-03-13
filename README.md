@@ -31,7 +31,51 @@
 - Validation: **Zod**
 - Clerk integration: **@clerk/nextjs**
 
-Run development
+
+# Prerequisites
+
+| Operating system                  | Node.js version |
+|-----------------------------------| ------- |
+| macOS Sequoia 15.0.1 (24A348)     | 20.12.2    |
+| Ubuntu 24.04 Arm64                | 20.18.0     |
+| Fedora, Release 41                | 22.11.0    |
+| Windows 11 Pro 24H2 (26100.2033)  | 20.18.0        |
+
+* Package manager: pnpm https://pnpm.io/installation)
+* Stripe CLI: https://docs.stripe.com/stripe-cli
+* Mintlify CLI: https://mintlify.com/docs/development
+* Vercel CLI: https://vercel.com/docs/cli
+
+### Accounts
+
+* Arcjet, for **application security**.
+* BetterStack, for **logging and uptime monitoring**.
+* Clerk, for **authentication**.
+* Google Analytics, for **web analytics**.
+* Posthog, for **product analytics**.
+* Resend, for **transactional emails**.
+* Sentry, for **error tracking**.
+* Stripe, for **payments**.
+
+
+### Run development
+
+Install all dependencies 
+
+```shell
+pnpm install
+```
+
+Vercel Link and Env variables
+
+```shell
+vercel link ./apps/app
+vercel link ./apps/api
+vercel link ./apps/web
+
+cd apps/<app-name>
+vercel env pull 
+```
 
 ```shell
 pnpm dev
