@@ -9,9 +9,9 @@ import { Hero } from './components/hero';
 import { Testimonials } from './components/testimonials';
 
 const meta = {
-  title: 'Damir Akzhigitov | Frontend Developer Portfolio',
+  title: 'Commity – Your AI-Powered Coding Assistant for GitHub & GitLab',
   description:
-    'Welcome to my portfolio—showcasing expertise in scalable frontend development, micro-frontend architectures, CI/CD automation, and cutting-edge technologies. Discover my projects, career journey, and contributions to modern web development.',
+    'Commity is an AI-powered assistant that helps developers write code, manage GitHub and GitLab repositories, create issues, open pull/merge requests, and automate tasks — all through a smart, chat-based interface.',
 };
 
 export const metadata: Metadata = createMetadata(meta);
