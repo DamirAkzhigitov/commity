@@ -12,14 +12,11 @@ import {
 import { Menu, MoveRight, X } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
-import { useAuth } from '@repo/auth/client';
 
 import Image from 'next/image';
 import Logo from './logo.svg';
 
 export const Header = () => {
-  const auth = useAuth();
-
   const navigationItems = [
     {
       title: 'Features',
@@ -42,15 +39,14 @@ export const Header = () => {
   const [isOpen, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 left-0 z-40 w-full border-b bg-background">
-      <div className="container relative mx-auto flex min-h-20 flex-row items-center gap-4 lg:grid lg:grid-cols-2">
+    <header className="sticky top-0 left-0 z-40 w-full bg-background">
+      <div className="container relative mx-auto flex min-h-20 flex-row items-center justify-between gap-4 lg:grid lg:grid-cols-2">
         <Link href="/" className="flex items-center gap-2">
           <Image
               src={Logo}
               alt="Logo"
               width={34}
               height={34}
-              className="dark:invert"
           />
           <h1 className="text-3xl font-semibold">Commity</h1>
         </Link>
@@ -67,11 +63,7 @@ export const Header = () => {
                 </NavigationMenuItem>
               ))}
               <ModeToggle />
-              <Button asChild className="hidden md:inline">
-                <Link href={`${env.NEXT_PUBLIC_APP_URL}/sign-up`}>
-                  Get started
-                </Link>
-              </Button>
+                <Link className="text-2xl" href={`${env.NEXT_PUBLIC_APP_URL}/sign-in`}>Sign Up</Link>
             </NavigationMenuList>
           </NavigationMenu>
         </div>
