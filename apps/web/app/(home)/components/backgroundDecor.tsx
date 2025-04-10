@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from 'motion/react';
 import { useEffect, useState } from 'react';
+import { Transition } from 'motion';
 
 export default function BackgroundDecor() {
   return (
@@ -55,7 +56,7 @@ const layer: React.CSSProperties = {
 };
 
 function ChatCloud({ className }: { className?: string }) {
-  const bounceTransition = {
+  const bounceTransition: Transition = {
     repeat: Infinity,
     repeatType: 'loop',
     duration: 2,
