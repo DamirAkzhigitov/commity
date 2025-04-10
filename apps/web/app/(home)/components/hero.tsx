@@ -1,5 +1,7 @@
 import { Button } from '@repo/design-system/components/ui/button';
 import BackgroundDecor from '@/app/(home)/components/backgroundDecor';
+import Link from 'next/link';
+import { env } from '@/env';
 
 export const Hero = async () => {
   return (
@@ -15,7 +17,9 @@ export const Hero = async () => {
               helps you write and manage code.
             </p>
             <Button size="lg" className="bg-red-500 text-white text-lg font-semibold">
-              Get Started
+              <Link href={`${env.NEXT_PUBLIC_APP_URL}/sign-up`}>
+                Get Started
+              </Link>
             </Button>
           </div>
         </div>
