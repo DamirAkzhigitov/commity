@@ -1,58 +1,30 @@
-import { blog } from '@repo/cms';
-import { Feed } from '@repo/cms/components/feed';
 import { Button } from '@repo/design-system/components/ui/button';
-import { MoveRight, PhoneCall } from 'lucide-react';
-import { draftMode } from 'next/headers';
+import BackgroundDecor from '@/app/(home)/components/backgroundDecor';
 import Link from 'next/link';
+import { env } from '@/env';
 
 export const Hero = async () => {
-  const draft = await draftMode();
-
   return (
-    <div className="w-full">
-      <div className="container mx-auto">
-        <div className="flex flex-col items-center justify-center gap-8 py-20 lg:py-40">
-          <div>
-            <Feed queries={[blog.latestPostQuery]} draft={draft.isEnabled}>
-              {/* biome-ignore lint/suspicious/useAwait: "Server Actions must be async" */}
-              {async ([data]) => {
-                'use server';
-
-                return (
-                  <Button
-                    variant="secondary"
-                    size="sm"
-                    className="gap-4"
-                    asChild
-                  >
-                    <Link
-                      href={`/blog/${data.blog.posts.item?._slug}`}
-                      style={{ color: 'black' }}
-                    >
-                      Read latest article <MoveRight className="h-4 w-4" />
-                    </Link>
-                  </Button>
-                );
-              }}
-            </Feed>
-          </div>
-          <div className="flex flex-col gap-4">
-            <h1 className="max-w-2xl text-center font-light text-5xl tracking-tighter md:text-7xl">
-              Damir Akzhigitov
+    <section className="w-full">
+      <div className="container mx-auto relative min-h-[750px] ">
+        <div className="flex flex-col lg:flex-row items-center  justify-items-start gap-8 py-20 lg:py-40">
+          <div className="flex-1 max-w-2xl z-20">
+            <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-7xl  font-bold text-black dark:text-white leading-tight mb-6">
+              AI-powered code <br /> assistant for your  <br />repositories
             </h1>
-            <p className="max-w-2xl text-center text-lg text-muted-foreground leading-relaxed tracking-tight md:text-xl">
-              Frontend Developer
+            <p className="text-lg lg:text-3xl text-foreground mb-8">
+              Enhance your software development <br /> workflow with an AI assistant that <br />
+              helps you write and manage code.
             </p>
-          </div>
-          <div className="flex flex-col justify-center gap-3">
-            <Button size="lg" className="gap-4" variant="outline" asChild>
-              <Link href="/contact">
-                Get in touch <PhoneCall className="h-4 w-4" />
+            <Button size="lg" className="bg-red-500 text-white text-lg font-semibold">
+              <Link href={`${env.NEXT_PUBLIC_APP_URL}/sign-up`}>
+                Get Started
               </Link>
             </Button>
           </div>
         </div>
+        <BackgroundDecor />
       </div>
-    </div>
+    </section>
   );
 };
