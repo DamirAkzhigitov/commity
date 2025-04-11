@@ -5,13 +5,13 @@ import { useCopyToClipboard } from 'usehooks-ts';
 import type { Vote } from '@/lib/db/schema';
 
 import { CopyIcon, ThumbDownIcon, ThumbUpIcon } from './icons';
-import { Button } from './ui/button';
+import { Button } from '@repo/design-system/components/ui/button';
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from './ui/tooltip';
+} from '@repo/design-system/components/ui/tooltip';
 import { memo } from 'react';
 import equal from 'fast-deep-equal';
 import { toast } from 'sonner';
